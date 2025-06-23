@@ -1,38 +1,19 @@
 import { Router } from 'express';
-import { AuthRoutes } from '../modules/Auth/auth.route';
-import { CourseRoutes } from '../modules/course/course.route';
-import { LessionRoutes } from '../modules/Lession/lession.route';
-import { TopicRoutes } from '../modules/Topics/topic.route';
-import { EnrollmentRoutes } from '../modules/Enrollment/enrollment.route';
-import { QuizRoutes } from '../modules/Quiz/quiz.route';
+import { CategoryRoutes } from '../modules/Category/category.route';
+import { FoodRoutes } from '../modules/Food/food.route';
 
 const router = Router();
 
 const moduleRoutes = [
   {
-    path: '/auth',
-    route: AuthRoutes,
+    path: '/categories',
+    route: CategoryRoutes,
   },
   {
-    path: '/course',
-    route: CourseRoutes,
+    path: '/food',
+    route: FoodRoutes,
   },
-  {
-    path: '/lession',
-    route: LessionRoutes,
-  },
-  {
-    path: '/topic',
-    route: TopicRoutes,
-  },
-  {
-    path: '/enrollment',
-    route: EnrollmentRoutes,
-  },
-  {
-    path: '/quiz',
-    route: QuizRoutes,
-  }
+ 
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

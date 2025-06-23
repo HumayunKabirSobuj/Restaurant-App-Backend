@@ -25,7 +25,7 @@ It is built with a modular architecture, making it easy to extend and secure for
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/HumayunKabirSobuj/Course-Learning-App-Job-Task.git
+git clone https://github.com/HumayunKabirSobuj/Restaurant-App-Backend.git
 cd Course-Learning-App-Job-Task
 
 **Step - 2:** install the all packges

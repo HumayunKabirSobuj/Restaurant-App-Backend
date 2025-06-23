@@ -19,7 +19,7 @@ app.use('/api', router);
 
 
 app.get('/', async (req: Request, res: Response) => {
-  res.send('Course Learning App server is running...');
+  res.send('Restaurant App server is running...');
 });
 
 // Error handlers
