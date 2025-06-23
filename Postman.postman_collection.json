@@ -1,0 +1,933 @@
+{
+	"info": {
+		"_postman_id": "65cd1980-7e27-4840-96e2-5ae289011454",
+		"name": "Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38308083",
+		"_collection_link": "https://crimson-water-321575.postman.co/workspace/Practice~b83c0c86-2a37-40b1-bd98-6e924ce3b6ee/collection/38308083-65cd1980-7e27-4840-96e2-5ae289011454?action=share&source=collection_link&creator=38308083"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\": \"Student\",\r\n    \"email\": \"student@gmail.com\",\r\n    \"password\": \"student\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"student@gmail.com\",\r\n    \"password\": \"student\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDMzMTUwMiwiZXhwIjoxNzUwNDE3OTAyfQ.x0nYK94whz6h8xWv0eh5lqeznjSx91ASVKCnrmT22T8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"title\": \"Database Fundamentals\",\r\n    \"description\": \"Learn SQL basics and how to interact with relational databases.\",\r\n    \"subject\": \"Database\",\r\n    \"level\": \"Beginner\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"course"
+							]
+						},
+						"description": "Creaste Course Api"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"course"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Web",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get All Courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Course",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU3R1ZGVudCIsImVtYWlsIjoic3R1ZGVudEBnbWFpbC5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc1MDMzNTkyOSwiZXhwIjoxNzUwNDIyMzI5fQ.eQ6lbAhTFOMkz6l5wI5Nzc0-jxQXOj0xjImvxlDpIys",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/course/6853f0ee31553c56856fe210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"course",
+								"6853f0ee31553c56856fe210"
+							],
+							"query": [
+								{
+									"key": "Auth",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "## API Endpoint: Retrieve Course Information\n\n### Description\n\nThis endpoint allows clients to retrieve detailed information about a specific course identified by its unique ID. The course ID is provided as part of the URL path.\n\n### Request\n\n- **Method**: GET\n    \n- **URL**: `http://localhost:8080/api/course/{courseId}`\n    \n- **Path Parameter**:\n    \n    - `courseId` (string): The unique identifier for the course you wish to retrieve. In this example, the course ID is `6852d773d82ceba1d9b10fc4`.\n        \n\n### Response\n\nUpon a successful request, the server will return a JSON object containing the details of the requested course. The structure of the response typically includes:\n\n- `id` (string): The unique identifier of the course.\n    \n- `title` (string): The title of the course.\n    \n- `description` (string): A brief description of the course content.\n    \n- `instructor` (string): The name of the instructor teaching the course.\n    \n- `duration` (string): The duration of the course.\n    \n- `schedule` (array): An array of objects representing the schedule of the course sessions.\n    \n\n### Example Response\n\n``` json\n{\n  \"id\": \"6852d773d82ceba1d9b10fc4\",\n  \"title\": \"Introduction to Programming\",\n  \"description\": \"Learn the basics of programming using Python.\",\n  \"instructor\": \"John Doe\",\n  \"duration\": \"6 weeks\",\n  \"schedule\": [\n    {\n      \"date\": \"2023-01-10\",\n      \"time\": \"10:00 AM\"\n    },\n    {\n      \"date\": \"2023-01-17\",\n      \"time\": \"10:00 AM\"\n    }\n  ]\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDMzMTUwMiwiZXhwIjoxNzUwNDE3OTAyfQ.x0nYK94whz6h8xWv0eh5lqeznjSx91ASVKCnrmT22T8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Getting Started with HTML & CSS I Want This\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/course/6853f0ee31553c56856fe210",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"course",
+								"6853f0ee31553c56856fe210"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/course/68539f9410b5934ac57e1d1b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"course",
+								"68539f9410b5934ac57e1d1b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lession",
+			"item": [
+				{
+					"name": "Create Lession",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDMzMTUwMiwiZXhwIjoxNzUwNDE3OTAyfQ.x0nYK94whz6h8xWv0eh5lqeznjSx91ASVKCnrmT22T8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"courseId\": \"6853f0ee31553c56856fe210\",\r\n    \"title\": \"JavaScript Numbers and Math Operations\",\r\n    \"description\": \"Dive into numbers, arithmetic operations, and the Math object.\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/lession",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lession"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Lessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/lession?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lession"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "differences",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Lession",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/lession/6853b0614ddbbb5e8e70700f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lession",
+								"6853b0614ddbbb5e8e70700f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Lession",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Programming\"  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/lession/6853b0614ddbbb5e8e70700f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lession",
+								"6853b0614ddbbb5e8e70700f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Lession",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Programming\"  \r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/lession/6853b0614ddbbb5e8e70700f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"lession",
+								"6853b0614ddbbb5e8e70700f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topic",
+			"item": [
+				{
+					"name": "Add Topic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDMzMTUwMiwiZXhwIjoxNzUwNDE3OTAyfQ.x0nYK94whz6h8xWv0eh5lqeznjSx91ASVKCnrmT22T8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lessonId\": \"6853f6a7484d2cd78a869444\",\r\n    \"title\": \"Humayun\",\r\n    \"content\": \"Learn how to define, call, and pass arguments to functions in JavaScript.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/topic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"topic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Topic",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Introduction to JavaScript Rana Ahmed\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/topic/6853ca076362fcf9fb465b21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"topic",
+								"6853ca076362fcf9fb465b21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Topic",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lessonId\": \"6853b51c701035f2f844960d\",\r\n  \"title\": \"Introduction to JavaScript\",\r\n  \"content\": \"JavaScript is a versatile scripting language used to create dynamic web applications. It runs in the browser and allows interaction with HTML and CSS.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/topic?page=1&limit=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"topic"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Fundamentals",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Topic",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU3R1ZGVudCIsImVtYWlsIjoic3R1ZGVudEBnbWFpbC5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc1MDMzODkwMCwiZXhwIjoxNzUwNDI1MzAwfQ.7gInNlksn_1St1df393N3rKVyBuesUFNIa-YjlOyAyw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lessonId\": \"6853b51c701035f2f844960d\",\r\n  \"title\": \"Introduction to JavaScript\",\r\n  \"content\": \"JavaScript is a versatile scripting language used to create dynamic web applications. It runs in the browser and allows interaction with HTML and CSS.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/topic/6853f7cf8b9b299efab058a5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"topic",
+								"6853f7cf8b9b299efab058a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Topic",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lessonId\": \"6853b51c701035f2f844960d\",\r\n  \"title\": \"Introduction to JavaScript\",\r\n  \"content\": \"JavaScript is a versatile scripting language used to create dynamic web applications. It runs in the browser and allows interaction with HTML and CSS.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/topic/6853ca076362fcf9fb465b21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"topic",
+								"6853ca076362fcf9fb465b21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enrollment",
+			"item": [
+				{
+					"name": "Add Enrollment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSHVtYXl1biBLYWJpciIsImVtYWlsIjoiaHVtYXl1bkBnbWFpbC5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc1MDMyNDcxMiwiZXhwIjoxNzUwNDExMTEyfQ.wGgLCcoG9W6trFTDzHuINxsK7Qigy8AcgRnN-QQsOH4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"6853a257219ff298f4e4ba26\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"enrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Enrollments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFudmlyIEFsYW0iLCJlbWFpbCI6InRhbnZpckB0ZWFjaGVyLmNvbSIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzUwMjU0MTI2LCJleHAiOjE3NTAzNDA1MjZ9.eLE0NMDhxTLftdRnUsxY5Z29G7sD7vK5UlJDoCSw1Jo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"6853a257219ff298f4e4ba26\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"enrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Enrollment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU3R1ZGVudCIsImVtYWlsIjoic3R1ZGVudEBnbWFpbC5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc1MDMyOTE2MiwiZXhwIjoxNzUwNDE1NTYyfQ.4PUB4JUPOuqx1P_6FtQugHebnKGwbUP88FUtJh88lPc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"6853a257219ff298f4e4ba26\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/enrollment/my-enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"enrollment",
+								"my-enrollment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz",
+			"item": [
+				{
+					"name": "Add Quiz",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDM0MjY1MCwiZXhwIjoxNzUwNDI5MDUwfQ.hLfOvaPeTpYqN2i4Dif8FX4Y52cDziO6fAnQgDAJR-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"topicId\": \"6853f7cf8b9b299efab058a5\",\r\n  \"questions\": [\r\n    {\r\n      \"question\": \"What is the capital of France?\",\r\n      \"options\": [\"Paris\", \"Berlin\", \"Rome\", \"Madrid\"],\r\n      \"correctAnswer\": \"Paris\"\r\n    },\r\n    {\r\n      \"question\": \"Which planet is known as the Red Planet?\",\r\n      \"options\": [\"Earth\", \"Venus\", \"Mars\", \"Jupiter\"],\r\n      \"correctAnswer\": \"Mars\"\r\n    },\r\n    {\r\n      \"question\": \"What is the output of 2 + 2 in JavaScript?\",\r\n      \"options\": [\"3\", \"4\", \"'4'\", \"undefined\"],\r\n      \"correctAnswer\": \"4\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/quiz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  All Quiz",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDM0MjY1MCwiZXhwIjoxNzUwNDI5MDUwfQ.hLfOvaPeTpYqN2i4Dif8FX4Y52cDziO6fAnQgDAJR-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/quiz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Single Quiz",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDM0MjY1MCwiZXhwIjoxNzUwNDI5MDUwfQ.hLfOvaPeTpYqN2i4Dif8FX4Y52cDziO6fAnQgDAJR-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/quiz/68541dae156667c52008dff8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"quiz",
+								"68541dae156667c52008dff8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quiz",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDM0MjY1MCwiZXhwIjoxNzUwNDI5MDUwfQ.hLfOvaPeTpYqN2i4Dif8FX4Y52cDziO6fAnQgDAJR-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"questions\": [\r\n    {\r\n      \"question\": \"What is the capital of France?\",\r\n      \"options\": [\"Paris\", \"Berlin\", \"Rome\", \"Madrid\"],\r\n      \"correctAnswer\": \"Paris\"\r\n    },\r\n    {\r\n      \"question\": \"Which planet is known as the Red Planet?\",\r\n      \"options\": [\"Earth\", \"Venus\", \"Mars\", \"Jupiter\"],\r\n      \"correctAnswer\": \"Mars\"\r\n    },\r\n    {\r\n      \"question\": \"What is the output of 2 + 2 in JavaScript?\",\r\n      \"options\": [\"3\", \"4\", \"'4'\", \"undefined\"],\r\n      \"correctAnswer\": \"4\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/quiz/68541dae156667c52008dff8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"quiz",
+								"68541dae156667c52008dff8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Quiz",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVhY2hlciIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciIsImlhdCI6MTc1MDM0MjY1MCwiZXhwIjoxNzUwNDI5MDUwfQ.hLfOvaPeTpYqN2i4Dif8FX4Y52cDziO6fAnQgDAJR-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/quiz/68541dae156667c52008dff8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"quiz",
+								"68541dae156667c52008dff8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
