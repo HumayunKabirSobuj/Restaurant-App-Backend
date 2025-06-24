@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AppError from '../../errors/AppError';
 import { TFood } from './food.interface';
 import { Food } from './food.model';
@@ -14,8 +15,8 @@ const addFood = async (payload: TFood) => {
   return result;
 };
 
-const getAllFoods = async () => {
-  const result = await Food.find().populate("category","name");
+const getAllFoods = async (filter: any) => {
+  const result = await Food.find(filter).populate("category", "name");
   return result;
 }
 
